@@ -1,10 +1,15 @@
 <?php
+$_SESSION['username'] = '';
+$_SESSION['password'] = '';
+
 session_start();
 $_SESSION['username'] = $_POST['username'];
 $_SESSION['password'] = $_POST['password'];
+
 if($_SESSION['username'] == 'open' && $_SESSION['password'] == 'sesame'){
-    header('Location:loggedIn.php');
-}
+    echo 'You are logged in';
+    echo '<button>Logout</button>';
+} else {
 ?>
 <form method="post">
     Username:<input type="text" name="username">
@@ -13,3 +18,6 @@ if($_SESSION['username'] == 'open' && $_SESSION['password'] == 'sesame'){
     <br>
     <input type="submit" name="Login">
 </form>
+<?php
+}
+?>  
